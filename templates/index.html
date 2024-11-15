@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}CreditPilot - AI-Driven Credit Access{% endblock %}
+
+{% block content %}
+<header class="hero">
+    <div class="container">
+        <h1>Empowering Credit Access Through AI</h1>
+        <p>Unlock your financial potential with our innovative AI-driven credit solutions</p>
+        <a href="{{ url_for('credit_form') }}" class="btn-primary">Get Started</a>
+    </div>
+</header>
+
+<section id="about" class="section">
+    <div class="container">
+        <h2 class="section-title">How We Help</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-robot"></i>
+                <h3>AI Credit Scoring</h3>
+                <p>Advanced algorithms analyze your complete financial profile</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Smart Analytics</h3>
+                <p>Real-time insights into your credit opportunities</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Secure Process</h3>
+                <p>Bank-level security protecting your data</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="solutions" class="section bg-light">
+    <div class="container">
+        <h2 class="section-title">Our Solutions</h2>
+        <div class="solutions-grid">
+            <div class="solution-card">
+                <img src="{{ url_for('static', filename='images/personal.jpg') }}" alt="Personal Credit">
+                <h3>Personal Credit</h3>
+                <p>Tailored credit solutions for individual needs</p>
+            </div>
+            <div class="solution-card">
+                <img src="{{ url_for('static', filename='images/business.jpg') }}" alt="Business Credit">
+                <h3>Business Credit</h3>
+                <p>Empowering businesses with flexible credit lines</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
