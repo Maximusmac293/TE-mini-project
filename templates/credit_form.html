@@ -46,10 +46,12 @@
                     <option value="Unemployed">Unemployed</option>
                 </select>
             </div>
-            <center><button type="submit" class="btn-primary">Submit Application</button></center>
+            <div style="text-align: center;">
+                <button type="submit" class="btn-primary">Submit Application</button>
+            </div>
         </form>
 
-        {% if predicted_score %}
+        {% if submitted %}
         <div class="prediction-result">
             <div class="prediction-box">
                 <h3 class="prediction-title">Hi {{ name }},</h3>
@@ -57,6 +59,13 @@
                 <div class="score">
                     <strong>{{ predicted_score }}</strong>
                 </div>
+
+                <div class="percentile-info">
+                    <h3>Where You Stand</h3>
+                    <p>You are in the <strong>{{ percentile }}<sup>th</sup></strong> percentile compared to other applicants.</p>
+                    <img src="{{ percentile_chart }}" alt="Credit Score Percentile Chart" style="max-width: 100%; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                </div>
+
                 <p class="prediction-footer">Our team will reach out to you soon to assist you with your credit journey.
                     Thank you for choosing CreditPilot!</p>
             </div>
@@ -64,6 +73,7 @@
         {% endif %}
     </div>
 </section>
+
 <script>
     function debounce(func, wait) {
         let timeout;
@@ -72,6 +82,7 @@
             timeout = setTimeout(() => func.apply(this, args), wait);
         };
     }
+
     const handleIncomeInput = debounce((event) => {
         const value = event.target.value;
         convertToWords(value);

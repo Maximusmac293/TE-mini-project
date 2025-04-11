@@ -26,47 +26,72 @@ body {
     padding: 0 2rem;
 }
 
+/* Navbar Styles */
 .navbar {
-    background: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: var(--primary-color); /* Use primary color for the navbar */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 100;
+    padding: 0 1rem; /* Add padding for spacing */
 }
 
 .navbar .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 80px;
+    height: 70px; /* Adjust height for a sleeker look */
 }
 
 .logo {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: 1.5rem;
+    font-size: 1.8rem; /* Slightly larger font size */
     font-weight: bold;
-    color: var(--primary-color);
+    color: white; /* White text for contrast */
     text-decoration: none;
 }
 
 .nav-links {
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem; /* Reduce gap for better alignment */
     list-style: none;
 }
 
 .nav-links a {
     text-decoration: none;
-    color: var(--dark-color);
+    color: white; /* White text for navbar links */
     font-weight: 500;
-    transition: color 0.3s;
+    font-size: 1rem; /* Adjust font size */
+    padding: 0.5rem 1rem; /* Add padding for better clickability */
+    border-radius: 0.375rem; /* Rounded corners for hover effect */
+    transition: background-color 0.3s, color 0.3s; /* Smooth hover transition */
 }
 
 .nav-links a:hover {
-    color: var(--primary-color);
+    background: var(--secondary-color); /* Highlight background on hover */
+    color: white; /* Ensure text remains white */
+}
+
+.navbar .logo i {
+    font-size: 2rem; /* Adjust icon size */
+    color: white; /* White icon for contrast */
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hide links on smaller screens */
+    }
+
+    .navbar .menu-toggle {
+        display: block; /* Show menu toggle button */
+        font-size: 1.5rem;
+        color: white;
+        cursor: pointer;
+    }
 }
 
 .hero {

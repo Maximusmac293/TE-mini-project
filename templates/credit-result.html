@@ -1,0 +1,24 @@
+<!-- {% extends "base.html" %}
+
+{% block title %}Credit Result - CreditPilot{% endblock %}
+
+{% block content %}
+<section class="result-section">
+    <div class="container">
+        <h2>Hi {{ name }},</h2>
+        <p>Your predicted credit score is:</p>
+        <div class="score"><strong>{{ predicted_score }}</strong></div>
+        <div class="percentile-info">
+            <p>You are in the <strong>{{ percentile }}<sup>th</sup></strong> percentile.</p>
+            <img src="{{ percentile_chart }}" alt="Score chart" style="max-width: 100%;">
+        </div>
+        <h3>Why this score?</h3>
+        <ul>
+            {% for feature, impact in shap_values.items() %}
+            <li><strong>{{ feature }}:</strong> {{ "%.2f"|format(impact) }}</li>
+            {% endfor %}
+        </ul>
+        <p>Our team will reach out soon. Thank you for choosing CreditPilot!</p>
+    </div>
+</section>
+{% endblock %} -->
