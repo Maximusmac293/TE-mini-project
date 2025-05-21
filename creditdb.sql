@@ -4,9 +4,9 @@ CREATE TABLE credit_form_data (
     email VARCHAR(100),
     phone VARCHAR(15),
     age INTEGER,
-    gender VARCHAR(10),
+    gender INTEGER,
     income FLOAT,
-    employment_profile VARCHAR(100),
+    employment_profile INTEGER,
     predicted_score FLOAT,
     percentile FLOAT,
     timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -17,8 +17,6 @@ CREATE TABLE users (
     email VARCHAR(100) UNIQUE NOT NULL,
     password TEXT NOT NULL
 );
-
-DROP table users ;
 
 select * from users ;
 

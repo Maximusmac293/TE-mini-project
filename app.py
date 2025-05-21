@@ -37,15 +37,27 @@ def insert_credit_data(name, email, phone, age, gender, income, employment_profi
     conn = get_db_connection()
     try:
         cur = conn.cursor()
+        # Convert NumPy types to Python native types
+        age = int(age)
+        gender = int(gender)
+        income = float(income)
+        employment_profile = int(employment_profile)
+        predicted_score = float(predicted_score)
+        percentile = float(percentile)
+        
+        print(f"Attempting to insert data: {name}, {email}, {phone}, {age}, {gender}, {income}, {employment_profile}, {predicted_score}, {percentile}")
         cur.execute("""
             INSERT INTO credit_form_data 
             (name, email, phone, age, gender, income, employment_profile, predicted_score, percentile)
             VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
         """, (name, email, phone, age, gender, income, employment_profile, predicted_score, percentile))
         conn.commit()
+        print("Data successfully inserted into database")
     except Exception as e:
         conn.rollback()
-        print(f"Error inserting credit data: {e}")
+        print(f"Error inserting credit data: {str(e)}")
+        print(f"Error type: {type(e)}")
+        raise  # Re-raise the exception to see the full traceback
     finally:
         cur.close()
         conn.close()
